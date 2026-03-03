@@ -247,18 +247,18 @@ func print_cells(cols map[int]column) {
 				print_day_col(j)
 			}
 			if col, ok := cols[i]; ok {
-				if i == 0 && j == calc_offset() - 1 {
+				if i == 0 && j == calc_offset()-1 {
 					print_cell(col[j], true)
 					continue
+				} else if len(col) > j {
+					print_cell(col[j], false)
+					continue
 				}
-			} else if len(col) > j {
-				print_cell(col[j], false)
-				continue
 			}
+			print_cell(0, false)
 		}
-		print_cell(0, false)
+		fmt.Printf("\n")
 	}
-	fmt.Printf("\n")
 }
 
 //
