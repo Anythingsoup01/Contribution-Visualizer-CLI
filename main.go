@@ -4,13 +4,7 @@ import (
 	"flag"
 )
 
-//
-//	Returns None
-//
-//	Generates a graph of your Git Repositories
-func stats(email string) {
-	print("stats")
-}
+
 
 func main() {
 	var folder string
