@@ -77,19 +77,21 @@ func fill_commits(email string, path string, commits map[int]int) map[int]int {
 	// Instantiate the repo
 	repo, err := git.PlainOpen(path)
 	if err != nil {
-		panic(err)
+		fmt.Printf("Error: %s : %s\n", path, err);
+		return commits
 	}
 
 	// Get the HEAD reference
 	ref, err := repo.Head()
 	if err != nil {
-		print(path)
-		panic(err)
+		fmt.Printf("Error: %s : %s\n", path, err);
+		return commits
 	}
 	// Get the commits history starting from HEAD
 	itr, err := repo.Log(&git.LogOptions{From: ref.Hash()})
 	if err != nil {
-		panic(err)
+		fmt.Printf("Error: %s : %s\n", path, err);
+		return commits
 	}
 	// Iterate the commits
 	offset := calc_offset()
