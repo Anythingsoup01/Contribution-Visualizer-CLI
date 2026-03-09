@@ -15,6 +15,8 @@ const WEEKS_IN_LAST_SIX_MONTHS = 26;
 const DAYS_IN_LAST_SIX_MONTHS = 183;
 const OUT_OF_RANGE = 99999;
 
+
+
 //
 //	Returns time.Time
 //
@@ -171,7 +173,7 @@ func build_cols(keys []int, commits map[int]int) map[int]column {
 func print_months() {
 	week := get_beginning_of_day(time.Now()).Add(-(DAYS_IN_LAST_SIX_MONTHS * time.Hour * 24))
 	month := week.Month()
-	fmt.Printf("         ")
+	fmt.Printf("      ")
 	for {
 		if week.Month() != month {
 			fmt.Printf("%s ", week.Month().String()[:3])
@@ -194,11 +196,11 @@ func print_months() {
 func print_day_col(day int) {
 	out := "     "
 	switch day {
-	case 1:
+	case 5:
 		out = " Mon "
 	case 3:
 		out = " Wed "
-	case 5:
+	case 1:
 		out = " Fri "
 	}
 	fmt.Printf(out)
